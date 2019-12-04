@@ -151,3 +151,7 @@ try:
     from makewiki.local_settings import *
 except ImportError:
     pass
+
+
+ALLOWED_HOSTS = ['localhost', 'uniqueprojectname.herokuapp.com']
+STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
