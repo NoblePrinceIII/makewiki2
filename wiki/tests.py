@@ -51,7 +51,6 @@ class PageDetailView_Test(TestCase):
         #Create a page to the database 
         Page.objects.create(title="My Test Page", content="test", author=user)
         
-
         #Make a GET request, and test route returns 200
         reponse = self.client.get("/my-test-page/")
 
