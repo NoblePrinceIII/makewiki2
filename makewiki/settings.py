@@ -22,7 +22,7 @@ SECRET_KEY = '1yct-t!2bnkgc7j59z+9cdd2k)@y+ftqor$!aya()3if^cnlo-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', makewikiproject.herokuapp.com, '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -133,8 +133,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+# STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
 
-STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
 
 
 
