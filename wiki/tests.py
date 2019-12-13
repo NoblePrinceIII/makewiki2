@@ -1,6 +1,3 @@
-from django.test import TestCase
-
-# Create your tests here.
 import unittest
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
