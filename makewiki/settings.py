@@ -133,8 +133,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
-
 
 
 
@@ -150,6 +148,7 @@ LOGOUT_REDIRECT_URL = "/"
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
+
 # PROTIP:
 # Need to override settings? Create a local_settings.py file
 # in this directory, and add settings there.
@@ -157,3 +156,5 @@ try:
     from makewiki.local_settings import *
 except ImportError:
     pass
+
+STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
