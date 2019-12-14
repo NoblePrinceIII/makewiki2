@@ -3,6 +3,6 @@ pytz==2019.3
 sqlparse==0.3.0
 passlib==1.7.0
 SQLAlchemy==1.1.5
-Werkzeug==0.11.15
+Werkzeug==0.15.3
 gunicorn==19.0.0
 gevent==1.2.1
