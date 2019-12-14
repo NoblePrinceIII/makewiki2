@@ -22,7 +22,7 @@ SECRET_KEY = '1yct-t!2bnkgc7j59z+9cdd2k)@y+ftqor$!aya()3if^cnlo-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'makewikifb.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'makewikifb.herokuapp.com','0.0.0.0']
 
 
 # Application definition
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'makewiki.urls'
@@ -120,18 +121,16 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-#Your project will probably also have static assets that aren’t tied to a particular app. 
-#In addition to using a static/ directory inside your apps
-#you can define a list of directories (STATICFILES_DIRS) in your settings file where Django will also look for static files.
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 
@@ -147,7 +146,7 @@ LOGOUT_REDIRECT_URL = "/"
 # Required for Heroku
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # PROTIP:
 # Need to override settings? Create a local_settings.py file
@@ -156,5 +155,3 @@ try:
     from makewiki.local_settings import *
 except ImportError:
     pass
-
-STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
